@@ -1,0 +1,16 @@
+;; Emacs-W3 HTTP cookies file
+;; Automatically generated file!!! DO NOT EDIT!!!
+
+(setq url-cookie-storage
+ '((".upwork.com"
+  [url-cookie "__cfduid" "d32f518185138870f89ed669aaa7fc5881539624413" "Tue, 15-Oct-19 17:26:53 GMT" "/" ".upwork.com" nil]))
+)
+(setq url-cookie-secure-storage
+ '((".upwork.com"
+  [url-cookie "visitor_id" "76.80.52.194.1539624413351216" "Thu Oct 17 23:43:20 2019 GMT" "/" ".upwork.com" t]))
+)
+
+;; Local Variables:
+;; version-control: never
+;; no-byte-compile: t
+;; End:
