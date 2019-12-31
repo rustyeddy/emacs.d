@@ -16,7 +16,7 @@
 (require 'yaml-mode)
 
 ;; HCL and Terraform
-(require 'hcl-mode)
-(require 'terraform-mode)
+;; (require 'hcl-mode)
+;; (require 'terraform-mode)
 
 (provide 'modes)

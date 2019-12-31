@@ -32,8 +32,8 @@
 (require 'auto-complete-config)
 (ac-config-default)
 
-(add-to-list 'exec-path "/Users/rusty/go/bin")
-(add-to-list 'exec-path "/usr/local/go/bin")
+(add-to-list 'exec-path "/home/rusty/go/bin")
+(add-to-list 'exec-path "/snap/go/current/bin")
 
 ;; (add-to-list 'load-path "/home/rusty/go/sr
 
@@ -69,10 +69,10 @@
 (add-hook 'go-mode-hook 'rusty-go-mode-hook)
 
 ;;; ??? Conflict with rusty-go-mode above?
-(add-hook 'go-mode-hook (lambda()
-			  (local-set-key (kbd "M-.") #'godef-jump)
-			  (local-set-key (kbd "M-.") #'godef-jump-other-window)
-			  (local-set-key (kbd "M-.") #'pop-tag-mark)))
+;; (add-hook 'go-mode-hook (lambda()
+;; 			  (local-set-key (kbd "M-.") #'godef-jump)
+;; 			  (local-set-key (kbd "M-.") #'godef-jump-other-window)
+;; 			  (local-set-key (kbd "M-.") #'pop-tag-mark)))
 
 ;; (setenv "GOPATH" "/Users/rusty/go/")
 (defun auto-complete-for-go ()
