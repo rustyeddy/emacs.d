@@ -33,10 +33,10 @@
 ;; I prefer cmd key for meta. This is just set in emacs
 ;; ONLY on a MAC
 ;;
-;; (setq mac-option-key-is-meta nil
-;;       mac-command-key-is-meta t
-;;       mac-command-modifier 'meta
-;;       mac-option-modifier 'none)
+(setq mac-option-key-is-meta nil
+      mac-command-key-is-meta t
+      mac-command-modifier 'meta
+      mac-option-modifier 'none)
 
 ;;; -------------------- Decent Looking Theme ----------------------------
 ;;; Added railscasts mode
