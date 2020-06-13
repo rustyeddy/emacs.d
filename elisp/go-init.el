@@ -83,7 +83,7 @@
 
 
 ;;Smaller compilation buffer
-(setq compilation-window-height 14)
+(setq compilation-window-height 24)
 (defun re-compilation-hook ()
   (when (not (get-buffer-window "*compilation*"))
     (save-selected-window

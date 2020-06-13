@@ -119,7 +119,7 @@ There are two things you can do about this warning:
  '(line-spacing 3)
  '(package-selected-packages
    (quote
-    (web-mode yaml-mode html5-schema auto-complete markdown-mode go-mode)))
+    (web-mode yaml-mode html5-schema markdown-mode go-mode)))
  '(save-place t)
  '(tool-bar-mode nil))
 (custom-set-faces
