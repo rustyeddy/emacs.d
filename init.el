@@ -84,3 +84,26 @@
 (require 'style)
 (require 'keymap)
 (require 'lua)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("95b0bc7b8687101335ebbf770828b641f2befdcf6d3c192243a251ce72ab1692" "42784a3f36d8f5f4c372b16b97407ef6820bf5e5780675f3abc97fe474281513" default)))
+ '(display-battery-mode t)
+ '(display-time-mode t)
+ '(indicate-buffer-boundaries (quote left))
+ '(line-spacing 3)
+ '(package-selected-packages
+   (quote
+    (exec-path-from-shell html5-schema auto-complete markdown-mode go-mode)))
+ '(save-place t)
+ '(tool-bar-mode nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:height 130)))))
