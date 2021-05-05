@@ -78,7 +78,7 @@ There are two things you can do about this warning:
   (global-display-line-numbers-mode))
 
 ;;; Truncate lines by default
-(set-default 'truncate-lines t)
+(set-default 'truncate-lines nil)
 
 ;;; Let us get electric pair mod going
 (electric-pair-mode)
@@ -111,18 +111,27 @@ There are two things you can do about this warning:
  '(display-battery-mode t)
  '(display-time-mode t)
  '(indicate-buffer-boundaries (quote left))
- '(line-spacing 3)
+ '(line-spacing 1)
  '(package-selected-packages
    (quote
-    (exec-path-from-shell html5-schema auto-complete markdown-mode go-mode)))
+    (exec-path-from-shell html5-schema auto-complete go-mode)))
    (quote
     (web-mode yaml-mode html5-schema markdown-mode go-mode)))
  '(save-place t)
  '(tool-bar-mode nil)
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:height 130)))))
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(default ((t (:height 130)))))
+(put 'set-goal-column 'disabled nil)
+
+;;; ====================================================================
+;;; GDB Mode
+;;; ====================================================================
+(setq gdb-many-windows nil)
+(setq gdb-show-main nil)
+
+

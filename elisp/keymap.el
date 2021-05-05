@@ -12,7 +12,8 @@
 ;; f4 => end define keyboard macro (emacs)
 
 (global-set-key (kbd "<f5>") 'compile)
-(global-set-key (kbd "<f6>") 'dlv)
+(global-set-key (kbd "<f6>") 'gdb)
+(global-set-key (kbd "S-<f6>") 'dlv)
 
 (global-set-key (kbd "<f7>") 'next-error)
 (global-set-key (kbd "<f8>") 'previous-error)
