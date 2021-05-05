@@ -53,6 +53,11 @@
 (setq org-default-notes-file (concat org-directory "/log/notes.org"))
 (define-key global-map "\C-cc" 'org-capture)
 
+;; ------------------------ CC - Mode ------------------------------------
+(setq c-default-style '((java-mode . "java")
+                        (awk-mode . "awk")
+                        (other . "cc-mode")))
+
 
 ;;; -----------------------     Lines     --------------------------------
 ;;; Turn on linum mode - give linum a little extra gutter space
@@ -71,6 +76,8 @@
 ;;; Setup Emacs Server
 (server-start)
 
+(setq make-backup-files nil)
+
 ;; set my email address
 (setq user-mail-address "rusty@rustyeddy.com")
 
@@ -84,3 +91,23 @@
 (require 'style)
 (require 'keymap)
 (require 'lua)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("95b0bc7b8687101335ebbf770828b641f2befdcf6d3c192243a251ce72ab1692" "42784a3f36d8f5f4c372b16b97407ef6820bf5e5780675f3abc97fe474281513" default))
+ '(display-time-mode t)
+ '(global-display-line-numbers-mode t)
+ '(indicate-buffer-boundaries 'left)
+ '(line-spacing 3)
+ '(package-selected-packages '(html5-schema auto-complete markdown-mode go-mode))
+ '(save-place t)
+ '(tool-bar-mode nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "Liberation Mono" :foundry "1ASC" :slant normal :weight normal :height 143 :width normal)))))
