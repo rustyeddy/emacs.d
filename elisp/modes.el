@@ -13,7 +13,7 @@
 
 ;; YAML - bring YAML into the fold
 ;; =========================================================
-(require 'yaml-mode)
+; (require 'yaml-mode)
 
 ;; HCL and Terraform
 ;; (require 'hcl-mode)

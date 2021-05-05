@@ -4,12 +4,17 @@
 ;; -- ================================================================== --
 
 ;; f1 => Help (emacs)
+
 (global-set-key (kbd "<f2>") 'split-window-below)
 (global-set-key (kbd "S-<f2>") 'split-window-right)
+
 ;; f3 => define keyboard macro (emacs)
 ;; f4 => end define keyboard macro (emacs)
-(global-set-key (kbd "<f5>") 'gud-gdb)
-(global-set-key (kbd "<f6>") 'compile)
+
+(global-set-key (kbd "<f5>") 'compile)
+(global-set-key (kbd "<f6>") 'gdb)
+(global-set-key (kbd "S-<f6>") 'dlv)
+
 (global-set-key (kbd "<f7>") 'next-error)
 (global-set-key (kbd "<f8>") 'previous-error)
 (global-set-key (kbd "<f9>") 'other-window)

@@ -1,4 +1,3 @@
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -16,9 +15,15 @@
  '(tool-bar-mode nil))
 
 ;; better to prompt for size ...
+(defun font10()
+  (interactive)
+  (custom-set-faces '(default ((t (:height 100))))))
+(defun font11()
+  (interactive)
+  (custom-set-faces '(default ((t (:height 110))))))
 (defun font12()
   (interactive)
-  (custom-set-faces '(default ((t (:height 130))))))
+  (custom-set-faces '(default ((t (:height 120))))))
 (defun font13()
   (interactive)
   (custom-set-faces '(default ((t (:height 130))))))
