@@ -23,6 +23,7 @@
 (require 'use-package)
 (setq use-package-always-ensure 't)
 
+(setq inhibit-startup-message t)
 
 ;; ======================================================================
 ;; PATHS Add our local elisp directory to the path
