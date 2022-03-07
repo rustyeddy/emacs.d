@@ -121,6 +121,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    '("95b0bc7b8687101335ebbf770828b641f2befdcf6d3c192243a251ce72ab1692" "42784a3f36d8f5f4c372b16b97407ef6820bf5e5780675f3abc97fe474281513" default))
+ '(display-battery-mode t)
  '(display-time-mode t)
  '(global-display-line-numbers-mode t)
  '(indicate-buffer-boundaries 'left)
@@ -136,3 +137,9 @@
 (setq gdb-show-main nil)
 
 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "Liberation Mono" :foundry "1ASC" :slant normal :weight normal :height 120 :width normal)))))
