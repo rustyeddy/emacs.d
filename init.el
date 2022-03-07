@@ -35,18 +35,18 @@
 
 ;; Org Mode
 ;; ======================================================================
-(setq org-directory "~/Dropbox/log")
-(setq org-default-notes-file (concat org-directory "/notes.org"))
-(setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
-         "* TODO %?\n  %i\n  %a")
-        ("j" "Journal" entry (file+olp+datetree "~/org/journal.org")
-         "* %?\nEntered on %U\n  %i\n  %a")))
+;; (setq org-directory "~/Dropbox/log")
+;; (setq org-default-notes-file (concat org-directory "/notes.org"))
+;; (setq org-capture-templates
+;;       '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
+;;          "* TODO %?\n  %i\n  %a")
+;;         ("j" "Journal" entry (file+olp+datetree "~/org/journal.org")
+;;          "* %?\nEntered on %U\n  %i\n  %a")))
 
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cc" 'org-capture)
-(global-set-key "\C-cb" 'org-switchb)
+;; (global-set-key "\C-cl" 'org-store-link)
+;; (global-set-key "\C-ca" 'org-agenda)
+;; (global-set-key "\C-cc" 'org-capture)
+;; (global-set-key "\C-cb" 'org-switchb)
 
 ;; --------------------- Mac Meta/Option Keys --------------------------
 ;; I prefer cmd key for meta. This is just set in emacs
@@ -81,7 +81,7 @@
   (global-display-line-numbers-mode))
 
 ;;; Truncate lines by default
-(set-default 'truncate-lines nil)
+(set-default 'truncate-lines t)
 
 ;;; Let us get electric pair mod going
 (electric-pair-mode)
@@ -90,6 +90,12 @@
 
 ;; set my email address
 (setq user-mail-address "rusty@rustyeddy.com")
+
+(use-package web-mode
+  :custom
+  (web-mode-markup-indent-offset 2)
+  (web-mode-css-indent-offset 2)
+  (web-mode-code-indent-offset 2))
 
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;; all these can be found in ./elisp 
@@ -122,31 +128,6 @@
  '(package-selected-packages '(html5-schema auto-complete markdown-mode go-mode))
  '(save-place t)
  '(tool-bar-mode nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:family "Liberation Mono" :foundry "1ASC" :slant normal :weight normal :height 143 :width normal)))))
- '(display-battery-mode t)
- '(display-time-mode t)
- '(indicate-buffer-boundaries (quote left))
- '(line-spacing 1)
- '(package-selected-packages
-   (quote
-    (exec-path-from-shell html5-schema auto-complete go-mode)))
-   (quote
-    (web-mode yaml-mode html5-schema markdown-mode go-mode)))
- '(save-place t)
- '(tool-bar-mode nil)
-
-;; (custom-set-faces
-;;  ;; custom-set-faces was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  '(default ((t (:height 130)))))
-(put 'set-goal-column 'disabled nil)
 
 ;;; ====================================================================
 ;;; GDB Mode
@@ -155,4 +136,3 @@
 (setq gdb-show-main nil)
 
 
->>>>>>> 8cd21991a67fa228bd4f3eb4b2f5f0a9f695d711
