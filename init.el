@@ -80,6 +80,9 @@
 (when (version<= "26.0.50" emacs-version)
   (global-display-line-numbers-mode))
 
+;;; Control tab to swith to previous buffer
+(global-set-key (kbd "<C-tab>")  'mode-line-other-buffer)
+
 ;;; Truncate lines by default
 (set-default 'truncate-lines t)
 
