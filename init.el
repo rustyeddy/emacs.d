@@ -1,6 +1,8 @@
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; First make everything look pretty
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(push "~/.emacs.d/elisp" load-path)
+
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (load-theme 'railscasts-reloaded t)
 
@@ -128,7 +130,6 @@
 ;;; ====================================================================
 (setq gdb-many-windows nil)
 (setq gdb-show-main nil)
-
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
