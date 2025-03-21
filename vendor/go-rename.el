@@ -1,1 +1,0 @@
-go-mode/go-rename.el
