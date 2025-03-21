@@ -29,9 +29,9 @@
 (when window-system (set-exec-path-from-shell-PATH))
 
 ;;; autocomplete 
-(require 'go-autocomplete)
-(require 'auto-complete-config)
-(ac-config-default)
+;; (require 'go-autocomplete)
+;; (require 'auto-complete-config)
+;; (ac-config-default)
 
 (add-to-list 'exec-path "~/go/bin")
 (add-to-list 'exec-path "/snap/go/current/bin")
@@ -79,8 +79,8 @@
 (defun auto-complete-for-go ()
   (auto-complete-mode 1))
 (add-hook 'go-mode-hook 'auto-complete-for-go)
-(with-eval-after-load 'go-mode
-   (require 'go-autocomplete))
+;; (with-eval-after-load 'go-mode
+;;    (require 'go-autocomplete))
 
 
 ;;Smaller compilation buffer
