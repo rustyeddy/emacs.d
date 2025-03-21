@@ -1,94 +1,16 @@
-;; load emacs 24's package system. Add MELPA repository.
-
-;;;
-;;; TODO
-;;;
-;;; - Set Keys to compile, fix bugs and debug go code
-;;; - Set Keys to run go test
-
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-;; ************************* Package ************************************
-
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
-
-;; use-package to simplify the config file
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-(require 'use-package)
-(setq use-package-always-ensure 't)
-
-(setq inhibit-startup-message t)
-
-;; ======================================================================
-;; PATHS Add our local elisp directory to the path
-
-;; TODO FIX THIS
-(add-to-list 'load-path "~/.emacs.d/elisp")
-(add-to-list 'load-path "~/.emacs.d/vendor")
-(add-to-list 'load-path "~/.emacs.d/vendor/web-mode")
-
-;; Org Mode
-;; ======================================================================
-;; (setq org-directory "~/Dropbox/log")
-;; (setq org-default-notes-file (concat org-directory "/notes.org"))
-;; (setq org-capture-templates
-;;       '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
-;;          "* TODO %?\n  %i\n  %a")
-;;         ("j" "Journal" entry (file+olp+datetree "~/org/journal.org")
-;;          "* %?\nEntered on %U\n  %i\n  %a")))
-
-;; (global-set-key "\C-cl" 'org-store-link)
-;; (global-set-key "\C-ca" 'org-agenda)
-;; (global-set-key "\C-cc" 'org-capture)
-;; (global-set-key "\C-cb" 'org-switchb)
-
-;; --------------------- Mac Meta/Option Keys --------------------------
-;; I prefer cmd key for meta. This is just set in emacs
-;; ONLY on a MAC
-;;
-(setq mac-option-key-is-meta nil
-      mac-command-key-is-meta t
-      mac-command-modifier 'meta
-      mac-option-modifier 'none)
-
-;;; -------------------- Decent Looking Theme ----------------------------
-;;; Added railscasts mode
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-
-;;; load rails casts 
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; First make everything look pretty
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/railscasts-reloaded-theme/")
 (load-theme 'railscasts-reloaded t)
 
-;;; ---------------------- ORG MODE -----------------------------------
-(setq org-log-done 'time)
-(setq org-directory "~/org")
-(setq org-default-notes-file (concat org-directory "/log/notes.org"))
-(define-key global-map "\C-cc" 'org-capture)
-
-;; ------------------------ CC - Mode ------------------------------------
-(setq c-default-style '((java-mode . "java")
-                        (awk-mode . "awk")
-                        (other . "cc-mode")))
-
-
-;;; -----------------------     Lines     --------------------------------
-(when (version<= "26.0.50" emacs-version)
-  (global-display-line-numbers-mode))
-
-;;; Control tab to swith to previous buffer
-(global-set-key (kbd "<C-tab>")  'mode-line-other-buffer)
-
-;;; Truncate lines by default
-(set-default 'truncate-lines t)
+;; setup line numbers on every buffer
+(global-display-line-numbers-mode)
 
 ;;; Let us get electric pair mod going
 (electric-pair-mode)
 
+;; Do not litter the directory with ~ files.
 (setq make-backup-files nil)
 
 ;; set my email address
@@ -106,17 +28,84 @@
 (require 'go-init)
 (require 'go-dlv)
 (require 'go-guru)
-(require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.gotmpl\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-(setq-default indent-tabs-mode nil)
 
-(require 'style)
-(require 'keymap)
-(require 'lua)
+(add-hook 'go-mode-hook
+  (lambda ()
+    (setq-default)
+    (setq tab-width 4)
+    (setq standard-indent 4)
+    (setq indent-tabs-mode nil)))
+
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Custom Keymaps
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(global-set-key (kbd "<C-tab>")  'mode-line-other-buffer)
+(global-set-key (kbd "<f2>") 'split-window-below)
+(global-set-key (kbd "S-<f2>") 'split-window-right)
+
+(global-set-key (kbd "<f5>") 'compile)
+(global-set-key (kbd "<f6>") 'gdb)
+(global-set-key (kbd "S-<f6>") 'dlv)
+
+(global-set-key (kbd "<f7>") 'next-error)
+(global-set-key (kbd "<f8>") 'previous-error)
+(global-set-key (kbd "<f9>") 'other-window)
+
+(global-set-key (kbd "<M-up>") 'scroll-down-command)
+(global-set-key (kbd "<M-down>") 'scroll-up-command)
+(global-set-key (kbd "<M-p>") 'other-window)
+
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Easy font sizes
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun font10()
+  (interactive)
+  (custom-set-faces '(default ((t (:height 100))))))
+(defun font11()
+  (interactive)
+  (custom-set-faces '(default ((t (:height 110))))))
+(defun font12()
+  (interactive)
+  (custom-set-faces '(default ((t (:height 120))))))
+(defun font13()
+  (interactive)
+  (custom-set-faces '(default ((t (:height 130))))))
+(defun font14()
+  (interactive)
+  (custom-set-faces '(default ((t (:height 140))))))
+(defun font15()
+  (interactive)
+  (custom-set-faces '(default ((t (:height 150))))))
+(defun font16()
+  (interactive)
+  (custom-set-faces '(default ((t (:height 160))))))
+(defun font17()
+  (interactive)
+  (custom-set-faces '(default ((t (:height 170))))))
+(defun font18()
+  (interactive)
+  (custom-set-faces '(default ((t (:height 180))))))
+
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Tree sitter stuff
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq treesit-language-source-alist
+   '((bash "https://github.com/tree-sitter/tree-sitter-bash")
+     (cmake "https://github.com/uyha/tree-sitter-cmake")
+     (css "https://github.com/tree-sitter/tree-sitter-css")
+     (elisp "https://github.com/Wilfred/tree-sitter-elisp")
+     (go "https://github.com/tree-sitter/tree-sitter-go")
+     (html "https://github.com/tree-sitter/tree-sitter-html")
+     (javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
+     (json "https://github.com/tree-sitter/tree-sitter-json")
+     (make "https://github.com/alemuller/tree-sitter-make")
+     (markdown "https://github.com/ikatyang/tree-sitter-markdown")
+     (python "https://github.com/tree-sitter/tree-sitter-python")
+     (toml "https://github.com/tree-sitter/tree-sitter-toml")
+     (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
+     (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
+     (yaml "https://github.com/ikatyang/tree-sitter-yaml")))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -129,7 +118,8 @@
  '(global-display-line-numbers-mode t)
  '(indicate-buffer-boundaries 'left)
  '(line-spacing 3)
- '(package-selected-packages '(html5-schema auto-complete markdown-mode go-mode))
+ '(package-selected-packages
+   '(go-guru go html5-schema auto-complete markdown-mode go-mode))
  '(save-place t)
  '(tool-bar-mode nil))
 
