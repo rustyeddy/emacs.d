@@ -129,7 +129,8 @@
  '(global-display-line-numbers-mode t)
  '(indicate-buffer-boundaries 'left)
  '(line-spacing 3)
- '(package-selected-packages '(html5-schema auto-complete markdown-mode go-mode))
+ '(package-selected-packages
+   '(php-mode html5-schema auto-complete markdown-mode go-mode))
  '(save-place t)
  '(tool-bar-mode nil))
 
