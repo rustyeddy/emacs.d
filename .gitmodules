@@ -1,3 +1,9 @@
 [submodule "web-mode"]
 	path = vendor/web-mode
 	url = git@github.com:fxbois/web-mode
+[submodule "vendor/go-mode"]
+	path = vendor/go-mode
+	url = git@github.com:dominikh/go-mode.el
+[submodule "vendor/go-dlv"]
+	path = vendor/go-dlv
+	url = git@github.com:benma/go-dlv.el
