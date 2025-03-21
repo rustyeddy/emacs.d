@@ -1,7 +1,7 @@
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; First make everything look pretty
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/railscasts-reloaded-theme/")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (load-theme 'railscasts-reloaded t)
 
 ;; setup line numbers on every buffer

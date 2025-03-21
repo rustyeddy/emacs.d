@@ -1,7 +1,6 @@
 # Compiled
 *.elc
 eln-cache
-elpa
 
 # Packaging
 .cask
