@@ -3,6 +3,9 @@
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (push "~/.emacs.d/elisp" load-path)
 (push "~/.emacs.d/vendor" load-path)
+(push "~/.emacs.d/vendor/web-mode" load-path)
+
+;; Requires godef to be installed: go install github.com/rogpeppe/godef@latest
 (push "~/.emacs.d/vendor/go-mode" load-path)
 (push "~/.emacs.d/vendor/go-dlv" load-path)
 
@@ -17,6 +20,9 @@
 
 ;; Do not litter the directory with ~ files.
 (setq make-backup-files nil)
+
+;; Use arrow keys to navigate around windows
+(windmove-default-keybindings)
 
 ;; set my email address
 (setq user-mail-address "rusty@rustyeddy.com")
@@ -33,7 +39,6 @@
 (require 'go-init)
 (require 'go-guru)
 (require 'go-dlv)
-
 
 (add-hook 'go-mode-hook
   (lambda ()
@@ -136,9 +141,15 @@
 (setq gdb-many-windows nil)
 (setq gdb-show-main nil)
 
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(default ((t (:family "Liberation Mono" :foundry "1ASC" :slant normal :weight normal :height 120 :width normal)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Liberation Mono" :foundry "1ASC" :slant normal :weight normal :height 120 :width normal)))))
+ '(default ((t (:height 113 :family "Source Code Pro" :foundry "ADBO" :slant normal :weight regular :width normal)))))
