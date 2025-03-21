@@ -4,3 +4,6 @@
 [submodule "go-mode.el"]
 	path = go-mode.el
 	url = git@github.com:dominikh/go-mode.el
+[submodule "web-mode"]
+	path = vendor/web-mode
+	url = git@github.com:fxbois/web-mode
