@@ -27,6 +27,23 @@
 ;; set my email address
 (setq user-mail-address "rusty@rustyeddy.com")
 
+;; ####################################################################
+;; Setup Melpa
+;; ####################################################################
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
+(package-initialize)
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(use-package graphviz-dot-mode
+  :ensure t
+  :config
+  (setq graphviz-dot-indent-width 4))
+
 (use-package web-mode
   :custom
   (web-mode-markup-indent-offset 2)
@@ -99,6 +116,11 @@
   (custom-set-faces '(default ((t (:height 180))))))
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; c family settings
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq c-default-style "cc-mode")
+
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Tree sitter stuff
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; (setq treesit-language-source-alist
@@ -131,7 +153,7 @@
  '(indicate-buffer-boundaries 'left)
  '(line-spacing 3)
  '(package-selected-packages
-   '(php-mode go-guru go html5-schema auto-complete markdown-mode go-mode))
+   '(graphviz-dot-mode php-mode go-guru go html5-schema auto-complete markdown-mode go-mode))
  '(save-place t)
  '(tool-bar-mode nil))
 

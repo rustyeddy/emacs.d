@@ -82,7 +82,6 @@
 ;; (with-eval-after-load 'go-mode
 ;;    (require 'go-autocomplete))
 
-
 ;;Smaller compilation buffer
 (setq compilation-window-height 24)
 (defun re-compilation-hook ()
