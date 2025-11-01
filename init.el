@@ -37,6 +37,23 @@
 ;; set my email address
 (setq user-mail-address "rusty@rustyeddy.com")
 
+;; ####################################################################
+;; Setup Melpa
+;; ####################################################################
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
+(package-initialize)
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(use-package graphviz-dot-mode
+  :ensure t
+  :config
+  (setq graphviz-dot-indent-width 4))
+
 (use-package web-mode
   :custom
   (web-mode-markup-indent-offset 2)
@@ -114,6 +131,11 @@
   (custom-set-faces '(default ((t (:height 180))))))
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; c family settings
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq c-default-style "cc-mode")
+
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Tree sitter stuff
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; (setq treesit-language-source-alist
@@ -148,8 +170,7 @@
  '(indicate-buffer-boundaries 'left)
  '(line-spacing 3)
  '(package-selected-packages
-   '(auto-complete dash editorconfig-custom-majormode f go go-guru
-		   go-mode html5-schema markdown-mode php-mode s))
+   '(graphviz-dot-mode php-mode go-guru go html5-schema auto-complete markdown-mode go-mode))
  '(save-place t)
  '(tool-bar-mode nil))
 
@@ -159,12 +180,6 @@
 (setq gdb-many-windows nil)
 (setq gdb-show-main nil)
 
-;; (custom-set-faces
-;;  ;; custom-set-faces was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  '(default ((t (:family "Liberation Mono" :foundry "1ASC" :slant normal :weight normal :height 120 :width normal)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
