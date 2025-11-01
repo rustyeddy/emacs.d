@@ -1,3 +1,13 @@
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Setup packages
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
+;; and `package-pinned-packages`. Most users will not need or want to do this.
+;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(package-initialize)
+
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; First make everything look pretty
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -46,6 +56,11 @@
     (setq tab-width 4)
     (setq standard-indent 4)
     (setq indent-tabs-mode nil)))
+
+;; (use-package copilot
+;;   (:url "https://github.com/copilot-emacs/copilot.el"
+;;         :rev :newest
+;;         :branch "main"))
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Custom Keymaps
@@ -124,14 +139,17 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("95b0bc7b8687101335ebbf770828b641f2befdcf6d3c192243a251ce72ab1692" "42784a3f36d8f5f4c372b16b97407ef6820bf5e5780675f3abc97fe474281513" default))
+   '("95b0bc7b8687101335ebbf770828b641f2befdcf6d3c192243a251ce72ab1692"
+     "42784a3f36d8f5f4c372b16b97407ef6820bf5e5780675f3abc97fe474281513"
+     default))
  '(display-battery-mode t)
  '(display-time-mode t)
  '(global-display-line-numbers-mode t)
  '(indicate-buffer-boundaries 'left)
  '(line-spacing 3)
  '(package-selected-packages
-   '(php-mode go-guru go html5-schema auto-complete markdown-mode go-mode))
+   '(auto-complete dash editorconfig-custom-majormode f go go-guru
+		   go-mode html5-schema markdown-mode php-mode s))
  '(save-place t)
  '(tool-bar-mode nil))
 
@@ -152,4 +170,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:height 113 :family "Source Code Pro" :foundry "ADBO" :slant normal :weight regular :width normal)))))
+ '(default ((t (:height 128 :family "Ubuntu Sans Mono" :foundry "DAMA" :slant normal :weight medium :width normal)))))
