@@ -14,3 +14,11 @@ session*
 ac-comphist.dat
 url/cache
 .#
+
+# Emacs package dirs
+elpa/
+straight/
+eshell/
+auto-save-list/
+transient/
+eln-cache/

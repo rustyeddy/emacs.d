@@ -7,3 +7,6 @@
 [submodule "vendor/go-dlv"]
 	path = vendor/go-dlv
 	url = git@github.com:benma/go-dlv.el
+[submodule "vendor/copilot"]
+	path = vendor/copilot
+	url = git@github.com:copilot-emacs/copilot.el
